@@ -25,13 +25,13 @@ class Board
 
   def move_piece(start_pos, end_pos)
     raise "No piece here" if self[start_pos].nil?
-    raise "Out of bounds or piece in the way" if !pos_within_bounds?(end_pos) || pos_occupied?(end_pos)
+    raise "Out of bounds or piece in the way" if !in_bounds?(end_pos) || pos_occupied?(end_pos)
 
     self[end_pos] = self[start_pos]
     self[start_pos] = nil
   end
 
-  def pos_within_bounds?(pos)
+  def in_bounds?(pos)
     pos.all? { |el| el.between?(0, 7) }
   end
 
