@@ -1,4 +1,4 @@
-require_relative "piece.rb"
+require_relative "queen.rb"
 require "byebug"
 
 class Board
@@ -8,7 +8,8 @@ class Board
     @grid = Array.new(8) { Array.new(8) }
     @grid.each_index do |row|
       @grid[row].each_index do |col|
-        self[[row, col]] = Piece.new if [0, 1, 6, 7].include?(row)
+        self[[row, col]] = Queen.new([row, col], self, :white) if [0, 1].include?(row)
+        self[[row, col]] = Queen.new([row, col], self, :black) if [6, 7].include?(row)
       end
     end
   end
@@ -42,6 +43,3 @@ class Board
 end
 
 # b = Board.new
-# b.move_piece([0,0], [3,3])
-# pos = [3,3]
-# p b[[3,3]]

@@ -1,6 +1,6 @@
 require 'colorize'
-require_relative 'cursor.rb'
-require_relative 'board.rb'
+require_relative './cursor.rb'
+require_relative './board.rb'
 require 'byebug'
 
 class Display
@@ -14,6 +14,7 @@ attr_accessor :cursor, :board
   def display
     while true
       render
+      # debugger
       cursor.get_input
     end
   end
@@ -42,7 +43,3 @@ attr_accessor :cursor, :board
 end
 
 d = Display.new
-d.display
-# p d.cursor.handle_key(:return)
-# p d.cursor.handle_key(:right)
-# p d.cursor.update_pos([0,1])

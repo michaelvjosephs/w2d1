@@ -1,20 +1,20 @@
 require './piece.rb'
 require './sliding_piece.rb'
 
-class Bishop < Piece
+class Rook < Piece
 
-  def initialize(pos, board, color, symbol = :B)
+  def initialize(pos, board, color, symbol = :R)
     super
   end
 
   include SlidingPiece
 
   def move_dirs
-    diagonal_dirs
+    horizontal_dirs
   end
 
   def to_s
-    "B"
+    "R"
   end
 
 end
