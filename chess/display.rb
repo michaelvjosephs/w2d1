@@ -25,11 +25,11 @@ attr_accessor :cursor, :board
       print "#{i} "
       row.each_with_index do |col, j|
         if board[cursor.cursor_pos] == board[[i,j]]
-          if cursor.selected
+          # if cursor.selected
             print "#{col.to_s.colorize(color: :red, background: :light_cyan)} "
-          else
-            print "#{col.to_s.colorize(color: :light_cyan, background: :red)} "
-          end
+          # else
+          #   print "#{col.to_s.colorize(color: :light_cyan, background: :red)} "
+          # end
         else
           print "#{col} "
         end
