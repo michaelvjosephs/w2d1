@@ -41,5 +41,3 @@ attr_accessor :cursor, :board
 
 
 end
-
-d = Display.new

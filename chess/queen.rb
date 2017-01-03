@@ -14,7 +14,7 @@ class Queen < Piece
   end
 
   def to_s
-    "Q"
+    color == :white ? "\u2655".encode('utf-8') : "\u265B".encode('utf-8')
   end
 
 end

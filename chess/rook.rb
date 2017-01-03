@@ -14,7 +14,7 @@ class Rook < Piece
   end
 
   def to_s
-    "R"
+    color == :white ? "\u2656".encode('utf-8') : "\u265C".encode('utf-8')
   end
 
 end
