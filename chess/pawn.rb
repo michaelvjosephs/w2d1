@@ -31,12 +31,12 @@ class Pawn < Piece
   end
 
   def at_start_row?
-    (color == :white && pos[0] == 1) || (color == :black && pos[0] == 6)
+    (color == :black && pos[0] == 1) || (color == :white && pos[0] == 6)
   end
 
   def forward_dir
     # if white, one direction, else other.
-    :down if color == :white
+    :down if color == :black
   end
 
   def forward_steps

@@ -7,6 +7,10 @@ class NullPiece < Piece
 
   end
 
+  def moves
+    []
+  end
+
   include Singleton
 
   def to_s

@@ -25,12 +25,12 @@ attr_accessor :cursor, :board
     board.grid.each_with_index do |row, i|
       print "#{i} "
       row.each_with_index do |col, j|
-        if board[cursor.cursor_pos] == board[[i,j]]
-          # if cursor.selected
-            print "#{col.to_s.colorize(color: :red, background: :light_cyan)} "
-          # else
-          #   print "#{col.to_s.colorize(color: :light_cyan, background: :red)} "
-          # end
+        if cursor.cursor_pos == [i,j]
+            # if col.is_a?(NullPiece)
+            #   print " ".colorize(color: :red, background: :light_cyan)
+            # else
+              print "#{board[[i,j]].to_s.colorize(color: :red, background: :light_cyan)} "
+            # end
         else
           print "#{col} "
         end
@@ -41,3 +41,23 @@ attr_accessor :cursor, :board
 
 
 end
+
+d = Display.new
+d.render
+d.board.move_piece([6,5],[5,5])
+d.render
+p d.board.in_check?(:white)
+puts "made valid move"
+d.board.move_piece([1,4], [3,4])
+d.render
+p d.board.in_check?(:white)
+puts "made second valid move"
+d.board.move_piece([6,6], [4,6])
+d.render
+p d.board.in_check?(:white)
+puts "move to almost checkmate"
+d.board.move_piece([0,3], [4,7])
+d.render
+p d.board.in_check?(:white)
+puts "move to checkmate"
+p d.board.checkmate?(:white)
